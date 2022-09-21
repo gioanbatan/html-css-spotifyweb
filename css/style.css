@@ -37,6 +37,21 @@ img {
     padding-bottom: 3rem;
 }
 
+.padx-1 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.padx-2 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.padx-3 {
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
 /* COMMON */
 html {
     font-size: 62.5%;
@@ -81,7 +96,7 @@ li {
 }
 
 /* Sidebar section */
-.sidebar {
+#sidebar {
     width: var(--sidebar-width);
     padding-left: 1rem;
     padding-right: 1rem;
@@ -105,7 +120,7 @@ li {
 }
 
 /* Main screen section */
-.main-screen {
+#main-screen {
     width: calc(100% - var(--sidebar-width));
 
     overflow: auto;
@@ -135,7 +150,7 @@ li {
 }
 
 /* Main window section */
-.main-window {
+#main-window {
     padding-top: var(--cta-height);
 }
 
@@ -177,10 +192,86 @@ li {
 
 
 /* CONTROL PANEL */
-.control-panel {
+#control-panel {
+    display: flex;
+    justify-content: space-between;
+
     width: 100%;
     height: var(--control-panel-height);
 
     /* DEBUG */
+    padding: 1rem;
     background-color: rgb(34, 34, 34);
+}
+
+/* c-panel left */
+.cpanel-left {
+    display: flex;
+    align-items: center;
+
+    width: 20%;
+}
+
+.cpanel-left .actual-track {
+    display: flex;
+    align-items: center;
+
+    padding-right: 3rem;
+}
+
+.cpanel-left .actual-track img {
+    max-width: 50px;
+
+    padding-right: 1rem
+}
+
+/* c-panel center */
+.cpanel-center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 60%;
+}
+
+.cpanel-center .controls {        
+    /* DEBUG */
+    text-align: center;
+}
+
+.cpanel-center .time {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+}
+
+.cpanel-center .time .time-bar{
+    flex-grow: 1;
+
+    width: 100%;
+    height: 3px;
+
+    background-color: var(--std-gray);
+    border-radius: 10px;
+    /* DEBUG */
+}
+
+/* c-panel right */
+.cpanel-right {
+    display: flex;
+    align-items: center;
+
+    width: 20%;
+}
+
+.cpanel-right .volume {
+    flex-grow: 1;
+
+    width: 60%;
+    height: 3px;
+
+    background-color: var(--std-gray);
+    border-radius: 10px;
 }
