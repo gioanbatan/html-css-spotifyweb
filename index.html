@@ -13,6 +13,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> 
 
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <title>Spotify</title>
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 </head>
@@ -309,42 +312,72 @@
                 <div class="actual-track">
                     <img src="img/sinister.jpeg" alt="">
                     <div class="actual-track-text">
-                        <h5>Name</h5>
-                        <h6>Name</h6>
+                        <h5>Sinister</h5>
+                        <h6>Brano Nome</h6>
                     </div>
                 </div>
 
                 <div class="fav-track">
-                    <a href="">icon</a>
-                    <a href="">icon</a>
+                    <a href="">
+                        <i class="fa-regular fa-heart"></i>
+                    </a>
+                    <a href="">
+                        <i class="fa-regular fa-folder"></i>
+                    </a>
                 </div>
             </div>
 
             <div class="cpanel-center">
                 <div class="controls">
-                    <button>b</button>
-                    <button>b</button>
-                    <button>b</button>
-                    <button>b</button>
-                    <button>b</button>
+                    <a class="cmd-shuffle" href="">
+                        <i class="fa-solid fa-shuffle"></i>
+                    </a>
+                    
+                    <a class="cmd-step-back" href="">
+                        <i class="fa-solid fa-backward-step"></i>
+                    </a>
+
+                    <a class="cmd-play" href="">
+                        <i class="fa-regular fa-circle-play"></i>
+                    </a>
+
+                    <a class="cmd-step-forward" href="">
+                        <i class="fa-solid fa-forward-step"></i>
+                    </a>
+
+                    <a class="cmd-repeat" href="">
+                        <i class="fa-solid fa-rotate-right"></i>
+                    </a>
                 </div>
 
                 <div class="time">
                     <!-- <span class="time-current">0:25</span> -->
                     <div class="time-current">0:25</div>
 
-                    <div class="time-bar"></div>
+                    <div class="time-bar">
+                        <div class="time-bar-actual"></div>
+                    </div>
 
                     <div class="time-total">4:35</div>
                 </div>
             </div>
 
             <div class="cpanel-right">
-                <button>icon</button>
-                <button>icon</button>
-                <button>icon</button>
+                <a href="">
+                    <i class="fa-solid fa-list"></i>
+                </a>
+
+                <a href="">
+                    <i class="fa-solid fa-desktop"></i>
+                </a>
                 
-                <div class="volume"></div>
+                <a href="">
+                    <i class="fa-solid fa-volume-high"></i>
+                </a>
+                
+                <div class="volume">
+                    <div class="volume-actual"></div>
+                </div>
             </div>
 
         </section>

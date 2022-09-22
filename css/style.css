@@ -17,7 +17,11 @@ img {
     --std-white: #ffffff;
     --std-gray: #a3a3a3;
     --std-font-color: #717171;
+    --std-font-control-panel: #878787;
     --bkg-main-window: #141922;
+    --bkg-control-panel: #282828;
+    --bar-empty: #5a5a5a;
+    --bar-full: #c1c1c1;
     --selection-color: #aeff2f;
 
     /* Spaces and sizes */
@@ -364,14 +368,14 @@ padding: 1rem 4rem;
     position: relative;
     display: flex;
     justify-content: space-between;
-    z-index: 1;
+    z-index: 999;
 
     width: 100%;
     height: var(--control-panel-height);
 
-    /* DEBUG */
-    padding: 1rem;
-    background-color: rgb(34, 34, 34);
+    background-color: var(--bkg-control-panel);
+    color: var(--std-font-control-panel);
+    padding: 1.2rem;
 }
 
 /* c-panel left */
@@ -388,11 +392,31 @@ padding: 1rem 4rem;
 
     padding-right: 3rem;
 }
-
 .cpanel-left .actual-track img {
     max-width: 50px;
 
-    padding-right: 1rem
+    padding-right: 1.3rem
+}
+
+.cpanel-left .actual-track h5 {
+    font-size: 1.2rem;
+    font-weight: 700;
+
+    color: var(--std-white);
+}
+
+.cpanel-left .actual-track h6 {
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.cpanel-left .fav-track a {
+    display: inline-block;
+    
+    font-size: 1.5rem;
+    
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
 
 /* c-panel center */
@@ -405,9 +429,17 @@ padding: 1rem 4rem;
     width: 40%;
 }
 
-.cpanel-center .controls {        
-    /* DEBUG */
-    text-align: center;
+.cpanel-center .controls a {        
+    font-size: 1.8rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    vertical-align: middle;
+
+    color: var(--std-white);
+}
+
+.cpanel-center .controls .cmd-play {
+    font-size: 3rem;
 }
 
 .cpanel-center .time {
@@ -417,33 +449,68 @@ padding: 1rem 4rem;
     width: 80%;
 }
 
-.cpanel-center .time .time-bar{
+.cpanel-center .time-current {
+    padding-right: 1rem;
+}
+
+.cpanel-center .time .time-bar {
     flex-grow: 1;
 
     width: 100%;
     height: 3px;
 
-    background-color: var(--std-gray);
+    background-color: var(--bar-empty);
     border-radius: 10px;
     /* DEBUG */
 }
 
+.cpanel-center .time .time-bar-actual {
+    width: 25%;
+    height: 3px;
+
+    background-color: var(--bar-full);
+    border-radius: 10px;
+}
+
+
+.cpanel-center .time-total {
+    padding-left: 1rem;
+}
+
+
 /* c-panel right */
 #control-panel .cpanel-right {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
 
-    width: 20%;
+    width: 25%;
+    min-width: 180px;
+    max-width: 210px;
+}
+
+.cpanel-right a {
+    font-size: 1.2rem;
+
+    padding-right: 10%;
+
+    color: var(--std-white);
 }
 
 .cpanel-right .volume {
-    flex-grow: 1;
-
+    width: 65%;
     max-width: 120px;
     height: 3px;
 
-    background-color: var(--std-gray);
+    background-color: var(--bar-empty);
+    border-radius: 10px;
+}
+
+.cpanel-right .volume-actual {
+    width: 25%;
+    height: 3px;
+
+    background-color: var(--bar-full);
     border-radius: 10px;
 }
 
