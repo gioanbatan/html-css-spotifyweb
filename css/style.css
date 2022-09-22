@@ -16,6 +16,7 @@ img {
     --std-black: #000000;
     --std-white: #ffffff;
     --std-gray: #a3a3a3;
+    --bkg-main-window: #141922;
     --selection-color: #aeff2f;
 
     /* Spaces and sizes */
@@ -208,6 +209,8 @@ li {
 /* Sidebar  user */
 #sidebar .user {
     color: var(--std-white);
+
+    font-weight: 800;
 }
 
 #sidebar .user .user-image-container {
@@ -227,18 +230,16 @@ li {
 
     border-radius: 50%;
 
-    object-fit: cover;
+    object-fit: contain;
 }
 
 /* Main screen section */
 #main-screen {
+    background-color: var(--bkg-main-window);
+    
     width: calc(100% - var(--sidebar-width));
-
+    
     overflow: auto;
-
-    /* DEBUG */
-    border: 1px dashed yellow;
-    background-color: darkolivegreen;
 }
 
 /* cta */
@@ -246,17 +247,22 @@ li {
     position: fixed;
     top: 0;
     right: 0;
-
-    color: var(--std-white);
-
+    
     width: calc(100% - var(--sidebar-width));
     height: var(--cta-height);
     line-height: var(--cta-height);
-
+    
     background-color: #00000070;
-
-    /* DEBUG */
+    
     text-align: right;
+}
+
+.cta span {
+color: var(--std-white);
+border: 1px solid var(--std-white);
+border-radius: 40px;
+
+padding: 1rem 4rem;
 }
 
 /* Main window section */
@@ -273,7 +279,7 @@ li {
     padding-bottom: 2rem; */
 
     /* DEBUG */
-    background-color: beige;
+    background-color: var(--bkg-main-window);
 }
 
 #main-window .menu ul {
