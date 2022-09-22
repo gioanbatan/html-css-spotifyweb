@@ -21,9 +21,11 @@ img {
     /* Spaces and sizes */
     --control-panel-height: 90px;
     --sidebar-width: 230px;
-    --sidebar-width-small: 50px;
     --cta-height: 90px;
     --cards-gutters: 5px;
+
+    /* Fonts */
+    --base-font-size: 1.3rem;
 }
 
 /* UTILITIES */
@@ -94,7 +96,7 @@ html {
     width: 100%;
     height: 100vh;
 
-    font-size: 1.3rem;
+    font-size: var(--base-font-size);
     font-weight: 600;
 
     color: var(--std-gray);
@@ -113,6 +115,7 @@ a {
 }
 
 li {
+    line-height: var(--base-font-size);
     padding-bottom: 2rem
 }
 
@@ -122,33 +125,53 @@ li {
     
     width: 100%;
     height: calc(100vh - var(--control-panel-height));
-
-    /* DEBUG */
-    /* border: 2px dashed white; */
 }
 
 /* Sidebar section */
 #sidebar {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 
     width: var(--sidebar-width);
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
     
     background-color: var(--std-black);
 }
 
+#sidebar img {
+    padding-right: 1rem;
+}
+
+#sidebar span{
+    display: inline-block;
+}
+
+#sidebar nav img,
+#sidebar .playlist img,
+#sidebar .sidebar-bottom img { 
+    height: 2rem;
+    
+    color: var(--std-gray);
+}
+
+#sidebar a img,
+#sidebar a span{
+    vertical-align: middle;    
+}
+
+#sidebar h4 {
+    color: var(--std-white);
+}
+
+/* Sidebar Logo */
 #logo {
     height: var(--cta-height);
     line-height: var(--cta-height);
-
-    /* DEBUG */
-    background-color: #aeff2f;
 }
 
 #logo img {
+    width: 130px;
     vertical-align: middle;
 }
 
@@ -156,10 +179,56 @@ li {
     display: none;
 }
 
-.playlist {
+/* Sidebar playlist */
+#sidebar .playlist {
     flex-grow: 1;
+
+    overflow-y: auto;
 }
 
+#sidebar .playlist .add-playlist {
+    background-color: var(--std-gray);
+    color: var(--std-black);
+
+    font-size: 4rem;
+    line-height: 4rem;
+
+    height: 4rem;
+    width: 4rem;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Sidebar bottom */
+/* Sidebar install app */
+#sidebar .install-app img {
+    height: var(--base-font-size);
+}
+
+/* Sidebar  user */
+#sidebar .user {
+    color: var(--std-white);
+}
+
+#sidebar .user .user-image-container {
+    display: inline-block;
+
+    height: 3rem;
+    width: 3rem;
+
+    background-color: var(--std-gray);
+    border-radius: 50%;
+}
+
+#sidebar .user .user-image-container img {
+    height: 3rem;
+    width: 3rem;
+    padding-right: 0;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+}
 
 /* Main screen section */
 #main-screen {
@@ -235,8 +304,10 @@ li {
 
 /* CONTROL PANEL */
 #control-panel {
+    position: relative;
     display: flex;
     justify-content: space-between;
+    z-index: 1;
 
     width: 100%;
     height: var(--control-panel-height);
@@ -334,7 +405,7 @@ li {
     #main-window .card {
         width: calc(((100vw - var(--sidebar-width) - 6rem) - var(--cards-gutters)) / 2);
        height: calc(((100vw - var(--sidebar-width) - 6rem) - var(--cards-gutters)) / 2);
-    }
+    } 
     
 }
 
@@ -344,10 +415,20 @@ li {
         --sidebar-width: 50px;
     }
 
-    #logo {
-        /* height: revert; */
-        line-height: normal;
+    
+    #sidebar {
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
 
+    #logo {
+        width: 100%;
+        height: auto;
+        line-height: normal;
+        padding-bottom: 1rem;
     }
     #logo .logo-big {
         display: none;
@@ -355,5 +436,25 @@ li {
 
     #logo .logo-small {
         display: block;
+    }
+
+    #sidebar img {
+        padding-right: 0;
+    }
+
+    #sidebar span {
+        display: none;
+    }
+
+    #sidebar nav {
+        flex-grow: 1;
+    }
+
+    #sidebar .playlist{
+        display: none;
+    }
+
+    #sidebar hr{
+        display: none;
     }
 }
