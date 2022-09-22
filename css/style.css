@@ -84,8 +84,15 @@ img {
 .wrap {
     flex-wrap: wrap;
 }
+
 .spc-between {
     justify-content: space-between;
+}
+
+.obj-fit-cover {
+    border-radius: 50%;
+
+    object-fit: cover;
 }
 
 /* COMMON */
@@ -282,6 +289,7 @@ padding: 1rem 4rem;
     padding-top: var(--cta-height);
 }
 
+/* Main window menu */
 #main-window .menu {
     width: 100%;
 
@@ -310,17 +318,45 @@ padding: 1rem 4rem;
     padding-bottom: 3.5rem;
 }
 
+/* Main window albums */
 #main-window .albums {
-    padding: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+#main-window .albums h2{
+    color: var(--std-white);
+    font-size: 2.3rem;
+    font-weight: 800;
+    
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+#main-window .col{
+    width: calc((100% - (var(--cards-gutters) * 5)) / 6);
 }
 
 #main-window .card {
-    width: calc(((100vw - var(--sidebar-width) - 6rem) - (var(--cards-gutters) * 5)) / 6);
-    height: calc(((100vw - var(--sidebar-width) - 6rem) - (var(--cards-gutters) * 5)) / 6);
-    
-    /* DEBUG */
-    background-color: chocolate;
-    border: 2px dashed blue;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    text-align: center;
+}
+
+#main-window .card h3 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--std-white);
+
+    padding-top: 1.2rem;
+    padding-bottom: 1rem;
+}
+
+#main-window .card h4 {
+    font-size: 1.2rem;
+
+    padding-bottom: 1rem;
 }
 
 /* CONTROL PANEL */
@@ -415,28 +451,28 @@ padding: 1rem 4rem;
 
 /* Small Desktop (screen md)*/
 @media screen and (max-width: 1100px) {
-    #main-window .card {
-        width: calc(((100vw - var(--sidebar-width) - 6rem) - (var(--cards-gutters) * 3)) / 4);
-        height: calc(((100vw - var(--sidebar-width) - 6rem) - (var(--cards-gutters) * 3)) / 4);
+    
+    #main-window .col {
+        width: calc((100% - (var(--cards-gutters) * 3)) / 4);
     }
 }
 
 /* Tablet (screen s) */
 @media screen and (max-width: 700px) {
-    #main-window .card {
-        width: calc(((100vw - var(--sidebar-width) - 6rem) - var(--cards-gutters)) / 2);
-       height: calc(((100vw - var(--sidebar-width) - 6rem) - var(--cards-gutters)) / 2);
+
+    #main-window .col {
+        width: calc((100% - var(--cards-gutters)) / 2);
     } 
     
 }
 
 /* Phone (screen xs) */
 @media screen and (max-width: 600px) {
+    
     :root {
         --sidebar-width: 50px;
     }
 
-    
     #sidebar {
         justify-content: space-between;
         align-items: center;
