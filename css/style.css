@@ -16,6 +16,7 @@ img {
     --std-black: #000000;
     --std-white: #ffffff;
     --std-gray: #a3a3a3;
+    --std-font-color: #717171;
     --bkg-main-window: #141922;
     --selection-color: #aeff2f;
 
@@ -98,9 +99,9 @@ html {
     height: 100vh;
 
     font-size: var(--base-font-size);
-    font-weight: 600;
+    font-weight: 700;
 
-    color: var(--std-gray);
+    color: var(--std-font-color);
     
     /* DEBUG */
     background-color:blueviolet;
@@ -141,7 +142,7 @@ li {
 }
 
 #sidebar img {
-    padding-right: 1rem;
+    padding-right: 0.3rem;
 }
 
 #sidebar span{
@@ -151,7 +152,7 @@ li {
 #sidebar nav img,
 #sidebar .playlist img,
 #sidebar .sidebar-bottom img { 
-    height: 2rem;
+    height: 2.6rem;
     
     color: var(--std-gray);
 }
@@ -180,6 +181,11 @@ li {
     display: none;
 }
 
+/* Sidebar nav */
+#sidebar nav li {
+    padding-bottom: 1rem;
+}
+
 /* Sidebar playlist */
 #sidebar .playlist {
     flex-grow: 1;
@@ -187,18 +193,24 @@ li {
     overflow-y: auto;
 }
 
-#sidebar .playlist .add-playlist {
+#sidebar .create-playlist .add-playlist {
+    display: inline-block;
+
     background-color: var(--std-gray);
     color: var(--std-black);
 
     font-size: 4rem;
     line-height: 4rem;
 
-    height: 4rem;
-    width: 4rem;
+    height: 3.9rem;
+    width: 3.9rem;
     text-align: center;
     vertical-align: middle;
 }
+
+#sidebar .create-playlist span {
+    font-size: 1.5rem;
+} 
 
 /* Sidebar bottom */
 /* Sidebar install app */
@@ -273,6 +285,7 @@ padding: 1rem 4rem;
 #main-window .menu {
     width: 100%;
 
+
     /* text-align: center; */
 
     /* padding-top: 2rem;
@@ -285,6 +298,7 @@ padding: 1rem 4rem;
 #main-window .menu ul {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 
     padding-top: 2rem;
 }
@@ -293,6 +307,7 @@ padding: 1rem 4rem;
     display: inline-block;
     padding-left: 1rem;
     padding-right: 1rem;
+    padding-bottom: 3.5rem;
 }
 
 #main-window .albums {
