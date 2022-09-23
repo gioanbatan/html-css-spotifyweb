@@ -160,6 +160,7 @@ li {
 #sidebar #logo, .playlist, .sidebar-bottom {
     padding-left: 2rem;
 }
+
 #sidebar nav li:not(:first-child) {
     padding-left: 2rem;
 }
@@ -283,16 +284,16 @@ li {
 #sidebar .user .user-image-container {
     display: inline-block;
 
-    height: 3rem;
-    width: 3rem;
+    height: 2.8rem;
+    width: 2.8rem;
 
     background-color: var(--std-gray);
     border-radius: 50%;
 }
 
 #sidebar .user .user-image-container img {
-    height: 3rem;
-    width: 3rem;
+    height: 2.8rem;
+    width: 2.8rem;
     padding-right: 0;
 
     border-radius: 50%;
@@ -495,7 +496,6 @@ li {
 .cpanel-left .actual-track a:hover {
     text-decoration: revert;
     transition: none;
-    color: unset;
 }
 
 .cpanel-left .actual-track h6 {
@@ -523,20 +523,37 @@ li {
 }
 
 .cpanel-center .controls {
+    display: flex;
     height: 50%;
 }
 
-.cpanel-center .controls a {        
+.cpanel-center .controls a {
+    display: inline-block;     
+    position: relative;
     font-size: 1.6rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
     vertical-align: middle;
+
+    width: 20px;
+    height: 20px;
 
     color: var(--std-white);
 }
 
+.cpanel-center .controls a i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .cpanel-center .controls .cmd-play {
     font-size: 3rem;
+}
+
+.cpanel-center .controls .cmd-play:hover {
+    transform: scale(1.1);
 }
 
 .cpanel-center .time {
@@ -555,17 +572,27 @@ li {
 }
 
 .cpanel-center .time .time-bar {
+    display: flex;
+    align-items: center;
     flex-grow: 1;
 
+    width: 100%;
+    height: 3rem;
+    
+    /* background-color: #aeff2f; */
+}
+
+.cpanel-center .time .time-bar-empty {
     width: 100%;
     height: 3px;
 
     background-color: var(--bar-empty);
     border-radius: 10px;
-    /* DEBUG */
 }
 
 .cpanel-center .time .time-bar-actual {
+    position: relative;
+
     width: 25%;
     height: 3px;
 
@@ -573,6 +600,23 @@ li {
     border-radius: 10px;
 }
 
+.cpanel-center .time .time-bar:hover .time-bar-actual{
+    background-color: var(--selection-color);
+}
+
+.cpanel-center .time .time-bar:hover .time-bar-actual::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(50%, -50%);
+
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+
+    background-color: var(--bar-full);
+}
 
 .cpanel-center .time-total {
     padding-left: 1rem;
@@ -602,8 +646,16 @@ li {
 }
 
 .cpanel-right .volume {
+    display: flex;
+    align-items: center;
+
     width: 65%;
     max-width: 120px;
+    height: 3rem;
+}
+
+.cpanel-right .volume-empty {
+    width: 100%;
     height: 3px;
 
     background-color: var(--bar-empty);
@@ -611,11 +663,30 @@ li {
 }
 
 .cpanel-right .volume-actual {
+    position: relative;
+
     width: 25%;
     height: 3px;
 
     background-color: var(--bar-full);
     border-radius: 10px;
+}
+
+.cpanel-right .volume:hover .volume-actual {
+    background-color: var(--selection-color);
+}
+
+.cpanel-right .volume:hover .volume-actual::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%);
+
+    width: 1rem;
+    height: 1rem;
+    background-color: var(--bar-full);
+    border-radius: 50%;
 }
 
 /* MEDIA */
@@ -652,6 +723,10 @@ li {
         padding-right: 1rem;
     }
 
+    #sidebar #logo, .playlist, .sidebar-bottom{
+        padding-left: 0;
+    }
+
     #logo {
         width: 100%;
         height: auto;
@@ -665,6 +740,19 @@ li {
     #logo .logo-small {
         display: block;
     }
+    
+    #sidebar nav {
+        flex-grow: 1;
+    }
+
+    #sidebar nav li:first-child {
+        padding-left: 0;
+        border-left: none;
+    }
+    
+    #sidebar nav li:not(:first-child) {
+        padding-left: 0;
+    }
 
     #sidebar img {
         padding-right: 0;
@@ -674,15 +762,16 @@ li {
         display: none;
     }
 
-    #sidebar nav {
-        flex-grow: 1;
-    }
-
     #sidebar .playlist{
         display: none;
     }
 
     #sidebar hr{
         display: none;
+    }
+
+    #sidebar .install-app {
+        display: flex;
+        justify-content: center;
     }
 }
